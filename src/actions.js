@@ -4,3 +4,16 @@ export const hideAddDeck = () => ({ type: 'HIDE_ADD_DECK' });
 export const addCard = card => ({ type: 'ADD_CARD', data: card });
 export const updateCard = card => ({ type: 'UPDATE_CARD', data: card });
 export const deleteCard = cardId => ({ type: 'DELETE_CARD', data: cardId });
+export const filterCards = query => ({ type: 'FILTER_CARDS', data: query });
+export const receiveData = data => ({ type: 'RECEIVE_DATA', data: data });
+
+export const fetchData = () => {
+  // dispatch(startedCall());
+
+  return dispatch => {
+    fetch('/api/data')
+      .then(res => res.json())
+      .then(json => dispatch(receiveData(json)));
+      //.catch(err => dispatch(failedRequest(err)))
+  };
+};

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CardModal from './cardModal';
 
 const mapStateToProps = ({ cards }, { params: { cardId } }) => ({
-  card: cards.filter(card => card.id === parseInt(cardId, 10)[0])
+  card: cards.filter(card => card.id === parseInt(cardId, 10))[0]
 });
 
 const mapDispatchToProps = dispatch => ({
